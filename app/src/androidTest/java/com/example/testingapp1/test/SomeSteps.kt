@@ -80,7 +80,7 @@ class SomeSteps(
             onView(
                 allOf(
                     withId(id.todo_view_name),
-                    isDescendentOfA(rowMatcher)
+                    isDescendantOfA(rowMatcher)
                 )
             ).check(ViewAssertions.matches(withText(expectedName)))
             onView(
