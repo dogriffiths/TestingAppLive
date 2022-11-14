@@ -17,6 +17,7 @@ import io.cucumber.java.en.When
 import com.example.testingapp1.R.id
 import io.cucumber.datatable.DataTable
 import junit.framework.Assert.assertEquals
+import okhttp3.mockwebserver.MockResponse
 import org.hamcrest.Matchers.allOf
 import org.json.JSONArray
 import kotlin.math.exp
@@ -130,6 +131,6 @@ class SomeSteps(
         }
         val body = JSONArray(data).toString()
         // or use a Dispatcher....
-        mockServer?.enqueue()
+        mockServer?.enqueue(MockResponse().setBody(body))
     }
 }
