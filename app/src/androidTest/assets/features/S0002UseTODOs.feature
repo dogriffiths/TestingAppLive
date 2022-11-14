@@ -3,7 +3,11 @@ Feature: Use TODOs
   I want to record TODOs
   So that I can be organised
 
-  Scenario: Open todos from the navigation menu
+  Scenario: View existing todos
     Given I have the launched the app
     When I tap to the TODOs option
-    Then the TODOs screen will be visible
+    Then I will the following todos
+      | Name           | Complete |
+      | Buy some milk  | TRUE     |
+      | Buy some fish  | FALSE    |
+      | Buy some bread | FALSE    |
