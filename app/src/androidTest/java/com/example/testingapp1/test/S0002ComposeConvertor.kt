@@ -1,10 +1,8 @@
 package com.example.testingapp1.test
 
 import android.view.View
-import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.performTextReplacement
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
@@ -37,5 +35,7 @@ class S0002ComposeConvertor {
             .performTextReplacement("-40")
         testRule.onNode(hasTestTag("convert"))
             .performClick()
+        testRule.onNode(hasTestTag("fahrenheit"))
+            .assert(hasText("-40"))
     }
 }
