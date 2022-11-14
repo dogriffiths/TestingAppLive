@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.testingapp1.MainActivity
@@ -92,5 +93,7 @@ class SomeSteps(
                 if (expectedComplete) isChecked() else isNotChecked()
             ))
         }
+        onView(withRecyclerView(id.todos_list).atPosition(asMaps.size))
+            .check(doesNotExist())
     }
 }
