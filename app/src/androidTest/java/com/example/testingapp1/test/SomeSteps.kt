@@ -42,8 +42,13 @@ class SomeSteps(
         converterScreen.fahrenheit.matches("" + f)
     }
 
-    @Then("I tap to the TODOs option")
+    @When("I tap to the TODOs option")
     fun iTapTODOS() {
         onView(withId(id.navigation_todos)).perform(click())
+    }
+
+    @Then("the TODOs screen will be visible")
+    fun todosVisible() {
+        
     }
 }
