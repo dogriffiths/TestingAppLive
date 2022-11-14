@@ -1,5 +1,6 @@
 package com.example.testingapp1.test
 
+import io.cucumber.java.After
 import io.cucumber.java.Before
 import okhttp3.mockwebserver.MockWebServer
 
@@ -10,5 +11,10 @@ class Hooks {
     fun startServer() {
         mockServer = MockWebServer()
         mockServer?.start(8080)
+    }
+
+    @After
+    fun stopServer() {
+        mockServer?.shutdown()
     }
 }
