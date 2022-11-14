@@ -34,20 +34,11 @@ class S0001EspressoConvertor {
 
     @Test
     fun shouldDoAnEspressoConversionProperly() {
-        // Given I have entered -40 into the celsius field
-//        onView(withId(id.celsius)).perform(replaceText("-40"))
-//        EditTextProxy(withId(id.celsius)).set("-40")
-        // When I click the 'Convert' button
-//        onView(withText("Convert")).perform(click())
-//        EspressoProxy(withText("Convert")).click()
-        // Then I will see -40 in the fahrenheit field
-//        onView(withResourceName("fahrenheit"))
-//            .check(ViewAssertions.matches(withText("-40")))
-//        EspressoProxy(withResourceName("fahrenheit")).matches("-40")
-
-        converterScreen.celsius.set("-40")
-        converterScreen.convert.click()
-        converterScreen.fahrenheit.matches("-40")
+        with(converterScreen) {
+            celsius.set("-40")
+            convert.click()
+            fahrenheit.matches("-40")
+        }
     }
 }
 
