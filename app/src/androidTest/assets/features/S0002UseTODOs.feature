@@ -5,6 +5,5 @@ Feature: Use TODOs
 
   Scenario: Open todos from the navigation menu
     Given I have the launched the app
-    And a celsius value of -40 has been entered
-    When the convert button is tapped
-    Then the fahrenheit value will be -40
+    When I tap to the TODOs option
+    Then the TODOs screen will be visible
