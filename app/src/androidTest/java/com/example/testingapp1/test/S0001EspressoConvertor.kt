@@ -38,12 +38,19 @@ class S0001EspressoConvertor {
 //        onView(withText("Convert")).perform(click())
         EspressoProxy(withText("Convert")).click()
         // Then I will see -40 in the fahrenheit field
-        onView(withResourceName("fahrenheit"))
-            .check(ViewAssertions.matches(withText("-40")))
+//        onView(withResourceName("fahrenheit"))
+//            .check(ViewAssertions.matches(withText("-40")))
+        EspressoProxy(withResourceName("fahrenheit")).matches("-40")
     }
 }
 
-class EspressoProxy(val matcher: Matcher<View>) {
+class EditTextProxy(matcher: Matcher<View>): EspressoProxy(matcher) {
+    fun set(s: String) {
+        onView(matcher).perform(replaceText(s))
+    }
+}
+
+open class EspressoProxy(val matcher: Matcher<View>) {
     fun click() {
         onView(matcher).perform(ViewActions.click())
     }
