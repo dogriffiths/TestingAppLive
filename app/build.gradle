@@ -83,7 +83,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Compose testing
-//    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
     // Use the stable Cucumber version
 //    androidTestImplementation 'io.cucumber:cucumber-android:4.9.0'
