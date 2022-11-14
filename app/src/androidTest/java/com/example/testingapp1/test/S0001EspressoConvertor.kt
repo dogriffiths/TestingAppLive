@@ -33,7 +33,8 @@ class S0001EspressoConvertor {
     @Test
     fun shouldDoAnEspressoConversionProperly() {
         // Given I have entered -40 into the celsius field
-        onView(withId(id.celsius)).perform(replaceText("-40"))
+//        onView(withId(id.celsius)).perform(replaceText("-40"))
+        EditTextProxy(withId(id.celsius)).set("-40")
         // When I click the 'Convert' button
 //        onView(withText("Convert")).perform(click())
         EspressoProxy(withText("Convert")).click()
