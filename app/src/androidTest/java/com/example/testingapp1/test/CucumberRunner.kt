@@ -1,6 +1,9 @@
 package com.example.testingapp1.test
 
+import android.app.Application
+import android.content.Context
 import android.os.Bundle
+import dagger.hilt.android.testing.HiltTestApplication
 import io.cucumber.android.runner.CucumberAndroidJUnitRunner
 import io.cucumber.junit.CucumberOptions
 import java.io.File
@@ -41,5 +44,13 @@ class CucumberRunner : CucumberAndroidJUnitRunner() {
             val directory = targetContext.getExternalFilesDir(null)
             return File(directory, "reports").absolutePath
         }
+
+
+    @Throws(ClassNotFoundException::class,
+        IllegalAccessException::class,
+        InstantiationException::class)
+    override fun newApplication(cl: ClassLoader, className: String, context: Context): Application {
+        return super.newApplication(cl, HiltTestApplication::class.java.name, context)
+    }
 }
 
