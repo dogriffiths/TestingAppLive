@@ -69,5 +69,7 @@ class SomeSteps(
     @Then("I will the following todos")
     fun iCanSee(dataTable: DataTable) {
         val asMaps = dataTable.asMaps()
+
+        withRecyclerView(id.todos_list).atPosition(4)
     }
 }
