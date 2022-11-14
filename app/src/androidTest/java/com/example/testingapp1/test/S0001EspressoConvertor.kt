@@ -3,8 +3,8 @@ package com.example.testingapp1.test
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,5 +24,7 @@ class S0001EspressoConvertor {
         // When I click the 'Convert' button
         onView(withText("Convert")).perform(click())
         // Then I will see -40 in the fahrenheit field
+        onView(withResourceName("fahrenheit"))
+            .check(ViewAssertions.matches(withText("-40")))
     }
 }
