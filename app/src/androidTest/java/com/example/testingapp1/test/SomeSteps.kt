@@ -86,7 +86,7 @@ class SomeSteps(
             onView(
                 allOf(
                     withId(id.todo_view_complete),
-                    rowMatcher
+                    isDescendantOfA(rowMatcher)
                 )
             ).check(ViewAssertions.matches(
                 if (expectedComplete) isChecked() else isNotChecked()
