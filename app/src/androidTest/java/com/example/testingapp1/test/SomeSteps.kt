@@ -18,6 +18,7 @@ import com.example.testingapp1.R.id
 import io.cucumber.datatable.DataTable
 import junit.framework.Assert.assertEquals
 import org.hamcrest.Matchers.allOf
+import org.json.JSONArray
 import kotlin.math.exp
 
 var navController: NavController? = null
@@ -127,5 +128,6 @@ class SomeSteps(
                 "complete" to (it.get("Complete") == "TRUE")
             )
         }
+        val body = JSONArray(data).toString()
     }
 }
