@@ -4,8 +4,7 @@ import android.view.View
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.replaceText
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -50,7 +49,7 @@ class ConverterScreen {
 
 class EditTextProxy(matcher: Matcher<View>): EspressoProxy(matcher) {
     fun set(s: String) {
-        onView(matcher).perform(replaceText(s))
+        onView(matcher).perform(replaceText(s)).perform(closeSoftKeyboard())
     }
 }
 
