@@ -1,14 +1,17 @@
 package com.example.testingapp1.test
 
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.testingapp1.MainActivity
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.example.testingapp1.R.id
+import org.junit.Before
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -17,6 +20,13 @@ import com.example.testingapp1.R.id
  */
 @RunWith(AndroidJUnit4::class)
 class S0001EspressoConvertor {
+    lateinit var scenario: ActivityScenario<MainActivity>
+
+    @Before
+    fun setUp() {
+        scenario = ActivityScenario.launch(MainActivity::class.java)
+    }
+
     @Test
     fun shouldDoAnEspressoConversionProperly() {
         // Given I have entered -40 into the celsius field
