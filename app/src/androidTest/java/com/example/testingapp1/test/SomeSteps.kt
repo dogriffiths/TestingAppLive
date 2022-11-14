@@ -121,6 +121,6 @@ class SomeSteps(
 
     @Given("the following todos exist")
     fun todosExist(dataTable: DataTable) {
-        
+
     }
 }
