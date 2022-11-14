@@ -3,6 +3,7 @@ package com.example.testingapp1.test
 import android.view.View
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions
@@ -34,7 +35,8 @@ class S0001EspressoConvertor {
         // Given I have entered -40 into the celsius field
         onView(withId(id.celsius)).perform(replaceText("-40"))
         // When I click the 'Convert' button
-        onView(withText("Convert")).perform(click())
+//        onView(withText("Convert")).perform(click())
+        EspressoProxy(withText("Convert")).click()
         // Then I will see -40 in the fahrenheit field
         onView(withResourceName("fahrenheit"))
             .check(ViewAssertions.matches(withText("-40")))
