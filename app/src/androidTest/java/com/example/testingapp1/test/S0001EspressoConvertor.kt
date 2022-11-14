@@ -13,5 +13,8 @@ import org.junit.runner.RunWith
 class S0001EspressoConvertor {
     @Test
     fun shouldDoAnEspressoConversionProperly() {
+        // Given I have entered -40 into the celsius field
+        // When I click the 'Convert' button
+        // Then I will see -40 in the fahrenheit field
     }
 }
