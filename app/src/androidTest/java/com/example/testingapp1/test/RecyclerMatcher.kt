@@ -1,4 +1,1 @@
-package com.example.testingapp1.test
-
-class RecyclerMatcher {
-}
+https://gist.githubusercontent.com/dogriffiths/dcc0aec0a6ce8909c50fcf1c674cc6cc/raw/1ecdcd3c110bdb185cdc93cda309c5a85209dcb2/RecyclerViewMatcher.kt
