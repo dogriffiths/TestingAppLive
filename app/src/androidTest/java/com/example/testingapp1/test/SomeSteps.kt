@@ -49,6 +49,6 @@ class SomeSteps(
 
     @Then("the TODOs screen will be visible")
     fun todosVisible() {
-        
+
     }
 }
