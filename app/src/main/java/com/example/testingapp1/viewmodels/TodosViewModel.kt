@@ -36,28 +36,28 @@ class TodosViewModel @Inject constructor(
 
     private suspend fun loadTodos() {
         val ts = mutableListOf<Todo>()
-        ts.add(Todo(
-            name = "Buy some milk",
-            complete = true
-        ))
-        ts.add(Todo(
-            name = "Buy some fish",
-            complete = false
-        ))
-        ts.add(Todo(
-            name = "Buy some bread",
-            complete = false
-        ))
+//        ts.add(Todo(
+//            name = "Buy some milk",
+//            complete = true
+//        ))
+//        ts.add(Todo(
+//            name = "Buy some fish",
+//            complete = false
+//        ))
+//        ts.add(Todo(
+//            name = "Buy some bread",
+//            complete = false
+//        ))
 
-//        val all = repository.getAll()
-//        for (i in 0 until all.length()) {
-//            val todo = all[i]
-//            val jsonObject = todo as JSONObject
-//            ts.add(Todo(
-//                name = jsonObject.get("name") as String,
-//                complete = jsonObject.get("complete") as Boolean
-//            ))
-//        }
+        val all = repository.getAll()
+        for (i in 0 until all.length()) {
+            val todo = all[i]
+            val jsonObject = todo as JSONObject
+            ts.add(Todo(
+                name = jsonObject.get("name") as String,
+                complete = jsonObject.get("complete") as Boolean
+            ))
+        }
         todos.postValue(ts)
     }
 }
