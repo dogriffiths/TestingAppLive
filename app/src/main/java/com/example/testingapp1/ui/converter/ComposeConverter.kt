@@ -14,6 +14,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import java.lang.Double.parseDouble
 
 private fun isNumeric(s: String): Boolean {
@@ -54,4 +55,10 @@ fun ComposeConverter() {
             text = fahrenheit.toString()
         )
     }
+}
+
+@Preview
+@Composable
+fun PreviewComposeConverter() {
+    ComposeConverter()
 }
