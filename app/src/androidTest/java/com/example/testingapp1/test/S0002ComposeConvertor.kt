@@ -22,7 +22,7 @@ import org.junit.Before
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class S0001EspressoConvertor {
+class S0002ComposeConvertor {
     lateinit var scenario: ActivityScenario<MainActivity>
 
     val converterScreen = ConverterScreen()
@@ -33,34 +33,11 @@ class S0001EspressoConvertor {
     }
 
     @Test
-    fun shouldDoAnEspressoConversionProperly() {
+    fun shouldDoAComposeConversionProperly() {
         with(converterScreen) {
             celsius.set("-40")
             convert.click()
             fahrenheit.matches("-40")
         }
-    }
-}
-
-class ConverterScreen {
-    val celsius get() = EditTextProxy(withId(id.celsius))
-    val convert get() = EspressoProxy(withText("Convert"))
-    val fahrenheit get() = EspressoProxy(withResourceName("fahrenheit"))
-}
-
-class EditTextProxy(matcher: Matcher<View>): EspressoProxy(matcher) {
-    fun set(s: String) {
-        onView(matcher).perform(replaceText(s))
-    }
-}
-
-open class EspressoProxy(val matcher: Matcher<View>) {
-    fun click() {
-        onView(matcher).perform(ViewActions.click())
-    }
-
-    fun matches(s: String) {
-        onView(matcher)
-            .check(ViewAssertions.matches(withText(s)))
     }
 }
