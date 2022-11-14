@@ -1,5 +1,6 @@
 package com.example.testingapp1.test
 
+import android.view.View
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -11,6 +12,7 @@ import com.example.testingapp1.MainActivity
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.example.testingapp1.R.id
+import org.hamcrest.Matcher
 import org.junit.Before
 
 /**
@@ -39,3 +41,4 @@ class S0001EspressoConvertor {
     }
 }
 
+class EspressoProxy(val matcher: Matcher<View>)
