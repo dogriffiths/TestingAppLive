@@ -6,7 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.testingapp1.MainActivity
 import io.cucumber.java.en.Given
@@ -15,6 +16,8 @@ import io.cucumber.java.en.When
 import com.example.testingapp1.R.id
 import io.cucumber.datatable.DataTable
 import junit.framework.Assert.assertEquals
+import org.hamcrest.Matchers.allOf
+import kotlin.math.exp
 
 var navController: NavController? = null
 
@@ -72,6 +75,22 @@ class SomeSteps(
         asMaps.forEachIndexed { pos, rowMap ->
             val expectedName = rowMap["Name"]
             val expectedComplete = (rowMap["Complete"] == "TRUE")
+            val rowMatcher = withRecyclerView(id.todos_list)
+                .atPosition(pos)
+            onView(
+                allOf(
+                    withId(id.todo_view_name),
+                    rowMatcher
+                )
+            ).check(ViewAssertions.matches(withText(expectedName)))
+            onView(
+                allOf(
+                    withId(id.todo_view_complete),
+                    rowMatcher
+                )
+            ).check(ViewAssertions.matches(
+                if (expectedComplete) isChecked() else isNotChecked()
+            ))
         }
     }
 }
