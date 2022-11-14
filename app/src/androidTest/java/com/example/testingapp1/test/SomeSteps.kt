@@ -70,7 +70,8 @@ class SomeSteps(
     fun iCanSee(dataTable: DataTable) {
         val asMaps = dataTable.asMaps()
         asMaps.forEachIndexed { pos, rowMap ->
-            
+            val expectedName = rowMap["Name"]
+            val expectedComplete = (rowMap["Complete"] == "TRUE")
         }
     }
 }
