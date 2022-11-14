@@ -8,6 +8,6 @@ class ConverterViewModel : ViewModel() {
     val fahrenheit = MutableLiveData("0")
 
     fun convert() {
-//        fahrenheit.postValue("" + (32 + ((celsius.value ?: "0").toInt() * 9 / 5)))
+        fahrenheit.postValue("" + (32 + ((celsius.value ?: "0").toInt() * 9 / 5)))
     }
 }
