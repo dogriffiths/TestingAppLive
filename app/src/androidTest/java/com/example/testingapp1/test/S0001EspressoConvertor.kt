@@ -25,6 +25,8 @@ import org.junit.Before
 class S0001EspressoConvertor {
     lateinit var scenario: ActivityScenario<MainActivity>
 
+    val converterScreen = ConverterScreen()
+
     @Before
     fun setUp() {
         scenario = ActivityScenario.launch(MainActivity::class.java)
@@ -34,15 +36,25 @@ class S0001EspressoConvertor {
     fun shouldDoAnEspressoConversionProperly() {
         // Given I have entered -40 into the celsius field
 //        onView(withId(id.celsius)).perform(replaceText("-40"))
-        EditTextProxy(withId(id.celsius)).set("-40")
+//        EditTextProxy(withId(id.celsius)).set("-40")
         // When I click the 'Convert' button
 //        onView(withText("Convert")).perform(click())
-        EspressoProxy(withText("Convert")).click()
+//        EspressoProxy(withText("Convert")).click()
         // Then I will see -40 in the fahrenheit field
 //        onView(withResourceName("fahrenheit"))
 //            .check(ViewAssertions.matches(withText("-40")))
-        EspressoProxy(withResourceName("fahrenheit")).matches("-40")
+//        EspressoProxy(withResourceName("fahrenheit")).matches("-40")
+
+        converterScreen.celsius.set("-40")
+        converterScreen.convert.click()
+        converterScreen.fahrenheit.matches("-40")
     }
+}
+
+class ConverterScreen {
+    val celsius get() = EditTextProxy(withId(id.celsius))
+    val convert get() = EspressoProxy(withText("Convert"))
+    val fahrenheit get() = EspressoProxy(withResourceName("fahrenheit"))
 }
 
 class EditTextProxy(matcher: Matcher<View>): EspressoProxy(matcher) {
