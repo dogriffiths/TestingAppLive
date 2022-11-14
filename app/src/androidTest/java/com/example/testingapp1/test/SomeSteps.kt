@@ -3,6 +3,7 @@ package com.example.testingapp1.test
 import android.content.Intent
 import androidx.compose.ui.test.SemanticsNodeInteractionsProvider
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.testingapp1.MainActivity
@@ -43,6 +44,6 @@ class SomeSteps(
 
     @Then("I tap to the TODOs option")
     fun iTapTODOS() {
-        onView(withId())
+        onView(withId(id.navigation_todos)).perform(click())
     }
 }
