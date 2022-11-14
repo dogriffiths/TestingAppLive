@@ -1,7 +1,7 @@
 package com.example.testingapp1.test
 
 import android.content.Intent
-import androidx.compose.ui.test.SemanticsNodeInteractionsProvider
+import androidx.compose.ui.test.*
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
@@ -97,6 +97,7 @@ class SomeSteps(
             .check(doesNotExist())
     }
 
+    /*
           @When("^I will see the following todos$")
       fun iWillSeeTheFollowingCompose(dataTable: DataTable) {
           val asMaps = dataTable.asMaps()
@@ -116,4 +117,5 @@ class SomeSteps(
           }
           onNode(hasTestTag("Row-${asMaps.size}")).assertDoesNotExist()
       }
+     */
 }
