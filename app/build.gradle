@@ -15,6 +15,15 @@ android {
         versionCode 1
         versionName "1.0"
 
+        // ./gradlew connectedAndroidTest -Pcucumber
+        // To run a tag ./gradlew connectedAndroidTest -Pcucumber -Pandroid.testInstrumentationRunnerArguments.tags=@Focus
+//        if (project.ext.has("cucumber")) {
+//            testInstrumentationRunner "com.example.testingapp1.test.CucumberRunner"
+//        } else {
+//            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        }
+
+
 //        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner "com.example.testingapp1.test.CucumberRunner"
     }

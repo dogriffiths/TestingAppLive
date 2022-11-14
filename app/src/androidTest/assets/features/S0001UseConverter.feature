@@ -1,3 +1,4 @@
+@Focus
 Feature: Convert from celsius
   As a user
   I want to convert from celsius to fahrenheit
