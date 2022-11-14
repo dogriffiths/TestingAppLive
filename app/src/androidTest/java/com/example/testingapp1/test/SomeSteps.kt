@@ -13,6 +13,7 @@ import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import com.example.testingapp1.R.id
+import io.cucumber.datatable.DataTable
 import junit.framework.Assert.assertEquals
 
 var navController: NavController? = null
@@ -63,5 +64,10 @@ class SomeSteps(
             id.navigation_todos,
             navController?.currentDestination?.id
         )
+    }
+
+    @Then("I will the following todos")
+    fun iCanSee(dataTable: DataTable) {
+        val asMaps = dataTable.asMaps()
     }
 }
