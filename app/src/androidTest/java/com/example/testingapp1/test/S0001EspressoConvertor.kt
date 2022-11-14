@@ -41,4 +41,8 @@ class S0001EspressoConvertor {
     }
 }
 
-class EspressoProxy(val matcher: Matcher<View>)
+class EspressoProxy(val matcher: Matcher<View>) {
+    fun click() {
+        onView(matcher).perform(ViewActions.click())
+    }
+}
