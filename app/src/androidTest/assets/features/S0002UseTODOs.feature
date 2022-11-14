@@ -8,7 +8,7 @@ Feature: Use TODOs
       | Name              | Complete |
       | Buy some milk     | TRUE     |
       | Buy some shoes    | FALSE    |
-      | Buy some bread    | FALSE    |
+      | Buy Twitter       | FALSE    |
       | Buy some trousers | FALSE    |
     And I have the launched the app
     When I tap to the TODOs option
