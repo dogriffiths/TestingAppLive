@@ -121,6 +121,11 @@ class SomeSteps(
 
     @Given("the following todos exist")
     fun todosExist(dataTable: DataTable) {
-
+        val data = dataTable.asMaps().map {
+            mapOf(
+                "name" to it.get("Name"),
+                "complete" to (it.get("Complete") == "TRUE")
+            )
+        }
     }
 }
