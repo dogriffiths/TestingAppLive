@@ -2,6 +2,8 @@ package com.example.testingapp1.test
 
 import android.content.Intent
 import androidx.compose.ui.test.SemanticsNodeInteractionsProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -11,6 +13,9 @@ import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import com.example.testingapp1.R.id
+import junit.framework.Assert.assertEquals
+
+var navController: NavController? = null
 
 class SomeSteps(
     val composeRuleHolder: ComposeRuleHolder,
@@ -25,6 +30,11 @@ class SomeSteps(
             InstrumentationRegistry.getInstrumentation().targetContext,
             MainActivity::class.java
         ))
+        getCurrentActivity()?. let {
+            navController = Navigation.findNavController(
+                it, id.nav_host_fragment_activity_main
+            )
+        }
     }
 
     @Given("a celsius value of {int} has been entered")
@@ -49,6 +59,9 @@ class SomeSteps(
 
     @Then("the TODOs screen will be visible")
     fun todosVisible() {
-
+        assertEquals(
+            id.navigation_todos,
+            navController?.currentDestination?.id
+        )
     }
 }
