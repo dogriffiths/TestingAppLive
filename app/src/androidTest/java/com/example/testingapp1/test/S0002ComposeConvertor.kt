@@ -1,6 +1,10 @@
 package com.example.testingapp1.test
 
 import android.view.View
+import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextReplacement
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
@@ -15,6 +19,7 @@ import org.junit.runner.RunWith
 import com.example.testingapp1.R.id
 import org.hamcrest.Matcher
 import org.junit.Before
+import org.junit.Rule
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -23,7 +28,14 @@ import org.junit.Before
  */
 @RunWith(AndroidJUnit4::class)
 class S0002ComposeConvertor {
+    @get:Rule
+    val testRule = createAndroidComposeRule<MainActivity>()
+
     @Test
     fun shouldDoAComposeConversionProperly() {
+        testRule.onNode(hasTestTag("celsius"))
+            .performTextReplacement("-40")
+        testRule.onNode(hasTestTag("convert"))
+            .performClick()
     }
 }
