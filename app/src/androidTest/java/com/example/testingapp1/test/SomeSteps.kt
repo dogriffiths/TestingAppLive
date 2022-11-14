@@ -2,11 +2,14 @@ package com.example.testingapp1.test
 
 import android.content.Intent
 import androidx.compose.ui.test.SemanticsNodeInteractionsProvider
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.testingapp1.MainActivity
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import com.example.testingapp1.R.id
 
 class SomeSteps(
     val composeRuleHolder: ComposeRuleHolder,
@@ -36,5 +39,10 @@ class SomeSteps(
     @Then("the fahrenheit value will be {int}")
     fun fIS(f: Int) {
         converterScreen.fahrenheit.matches("" + f)
+    }
+
+    @Then("I tap to the TODOs option")
+    fun iTapTODOS() {
+        onView(withId())
     }
 }
