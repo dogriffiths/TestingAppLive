@@ -1,7 +1,6 @@
-@Focus
-Feature: Convert from celsius
+Feature: Use TODOs
   As a user
-  I want to convert from celsius to fahrenheit
+  I want to record TODOs
   So that I can work the air conditioning
 
   Scenario: Convert from celsius
