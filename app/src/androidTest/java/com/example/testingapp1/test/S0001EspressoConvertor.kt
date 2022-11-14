@@ -47,4 +47,9 @@ class EspressoProxy(val matcher: Matcher<View>) {
     fun click() {
         onView(matcher).perform(ViewActions.click())
     }
+
+    fun matches(s: String) {
+        onView(matcher)
+            .check(ViewAssertions.matches(withText(s)))
+    }
 }
