@@ -96,4 +96,24 @@ class SomeSteps(
         onView(withRecyclerView(id.todos_list).atPosition(asMaps.size))
             .check(doesNotExist())
     }
+
+          @When("^I will see the following todos$")
+      fun iWillSeeTheFollowingCompose(dataTable: DataTable) {
+          val asMaps = dataTable.asMaps()
+          asMaps.forEachIndexed { pos, row ->
+              val expectedName = row["Name"]
+              val expectedComplete = row["Complete"]
+              val rowMatcher = hasTestTag("Row-$pos")
+              onNode(rowMatcher, true).performScrollTo()
+              val nameMatcher = hasTestTag("name").and(hasAnyAncestor(rowMatcher))
+              val completeMatcher = hasTestTag("complete").and(hasAnyAncestor(rowMatcher))
+              onNode(nameMatcher, true).assertTextEquals(expectedName ?: "")
+              if (expectedComplete == "TRUE") {
+                  onNode(completeMatcher).assertIsOn()
+              } else {
+                  onNode(completeMatcher).assertIsOff()
+              }
+          }
+          onNode(hasTestTag("Row-${asMaps.size}")).assertDoesNotExist()
+      }
 }
