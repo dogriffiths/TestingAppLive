@@ -23,21 +23,7 @@ import org.junit.Before
  */
 @RunWith(AndroidJUnit4::class)
 class S0002ComposeConvertor {
-    lateinit var scenario: ActivityScenario<MainActivity>
-
-    val converterScreen = ConverterScreen()
-
-    @Before
-    fun setUp() {
-        scenario = ActivityScenario.launch(MainActivity::class.java)
-    }
-
     @Test
     fun shouldDoAComposeConversionProperly() {
-        with(converterScreen) {
-            celsius.set("-40")
-            convert.click()
-            fahrenheit.matches("-40")
-        }
     }
 }
